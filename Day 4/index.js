@@ -54,16 +54,45 @@
 // getPosts()
 
 
-function delay (ms){
-    return new Promise (resolve => setTimeout (resolve , ms))
+// function delay (ms){
+//     return new Promise (resolve => setTimeout (resolve , ms))
     
-}
+// }
 
+
+// async function delayHello (){
+//     console.log("Waiting")
+//     await delay (5000)
+//     console.log("Am After 5 Second!")
+// }
+
+// delayHello()  
+
+// Task 1  Make a function getTodos() using async/await to fetch data from:
+
+// async function getTodos(){
+//     fetch('https://jsonplaceholder.typicode.com/todos')
+//     .then (res => res.json())
+//     .then (data => console.log(data))
+// }
+
+// getTodos()
+
+
+
+// Task 2 Create a delay(ms) function (as above).  Call it with 2 seconds and print “Waited 2 seconds” after waiting.
+
+
+function delay (ms){
+    return new Promise (resolve => setTimeout(resolve , ms)
+
+    )
+}
 
 async function delayHello (){
     console.log("Waiting")
-    await delay (5000)
-    console.log("Am After 5 Second!")
+    await delay(2000)
+    console.log("Am 2 Second After Hello")
 }
 
 delayHello()
