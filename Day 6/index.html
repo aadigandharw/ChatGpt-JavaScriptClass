@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> JavaScript Day 6 :Basic OF Dom </title>
+</head>
+
+<body>
+    <h2 id="myHeading">Welcome</h2>
+
+    <p class="text">Para 1</p>
+    <p class="text">Para 2</p>
+
+    <div class="box">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla ab, rerum ad obcaecati aliquam
+        nihil quasi. Quae iure eaque error!</div>
+
+    <!-- ✅ Task 1: 
+Ek <h2> tag bana, jisme text ho "Hello User" 
+ Aur ek button bana → button pe click hone par <h2> ka text change ho jaye "Welcome to 
+DOM" -->
+
+    <h2 id="h2">My Name Is Aditya The Pro Coder</h2>
+    <button onclick="ChangeText()" style="height: 30px;width: 100px;text-align: center;">ChangeText</button>
+
+    <!-- ✅ Task 2: 
+Input field se naam lo → jab "Greet Me" button dabao toh ek <p> tag me "Hi, Aditya!" jesa 
+greet message dikhe -->
+    <br><br>
+
+    <label for="">Your Name</label>
+    <input id="input" type="text" placeholder="Enter Your Name">
+    <button onclick="GetName()" style="height: 30px;width: 100px;text-align: center;">Enter</button>
+
+    <h1 id="EnterName"></h1>
+
+    <!-- ✅ Task 3:  -->
+    <!-- Ek paragraph lo jiska text color by default black ho.   -->
+    <!-- Jab "Change Color" button dabao, wo red color ka ho jaye. -->
+
+    <div id="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Nulla quae quo ipsum distinctio sint exercitationem
+        sapiente possimus nemo, eveniet suscipit
+        consequuntur sunt nisi minus sequi eaque voluptatem nihil dolor nobis.
+    </div>
+
+    <button onclick="ChangeColor()" style="height: 30px;width: 120px;text-align: center;">ChangeTextColor</button>
+
+
+    <br><br><br>
+
+    <!-- ✅ Task 4 (Challenge):  -->
+    <!-- Do input fields lo → username aur password  Aur ek button → jab dabao, -->
+    <!-- dono values console pe print ho jayein -->
+
+
+    <label>userName</label>
+    <input type="text" id="userName" placeholder="Enter Your userName">
+    <br><br>
+    <label>userPassword</label>
+    <input type="text" id="userPassword" placeholder="Enter Your password ">
+
+    <br>
+    <button onclick="SeeConsole()" style="height: 30px;width: 120px;text-align: center;">CheckConsole</button>
+
+
+
+
+    <li>Item 1</li>
+    <li>Item 2</li>
+
+
+
+    <!-- ✅ Task 5 (Creative):  -->
+    <!-- Ek bulb image lo (off wali)  Jab "ON" button dabao → bulb image change ho jaye to on bulb  -->
+    <!-- Aur "OFF" button dabao → back to off bulb  -->
+
+    <div style="hieght:100px;width: 100px;margin-left: 500px;margin-top: -50px;">
+
+        <img src="Bulb-Off.jpg" style="width: 400px;height: 100%;" id="Bulb">
+
+    </div>
+
+    <button style="margin-top: 20px; height: 50px;width: 100px;color: white; background-color: yellow;margin-left: 600px;"
+    onclick="BulbOn()" >Bulb-On</button>
+
+    <button style="margin-top: 20px;background-color: black;color: white; height: 50px;width: 100px;margin-left: 20px;"
+    onclick="BulbOff()">Bulb-OFF</button>
+
+
+
+</body>
+
+<script>
+    //✅ 1. getElementById("idName")
+    document.getElementById("myHeading").innerHTML = "Welcome to DOM"
+
+
+    // ✅ 2. getElementsByClassName("className")
+    const paras = document.getElementsByClassName("text");// Same Class Wale Ko Indexing ke through Particulary Access kr skte hai
+    paras[0].style.color = "blue";
+    paras[1].style.background = "black";
+    paras[1].style.color = "White";
+
+    // ✅ 3. querySelector("CSS_Selector")
+    const box = document.querySelector(".box");
+    box.style.backgroundColor = "green"
+
+    // ✅ 4. querySelectorAll("CSS_Selector")
+
+    const listItems = document.querySelectorAll("li");
+    listItems.forEach(item => item.style.color = "purple",
+
+    );
+
+
+    // ✅ Task 1:
+    function ChangeText() {
+        document.getElementById("h2").innerHTML = "You Click Button That's why it's Change"
+    }
+
+    // ✅ Task 2:
+    function GetName() {
+        let input_value = document.getElementById("input").value
+        document.getElementById("EnterName").innerText = "hii " + input_value + "👋"
+    }
+
+    // ✅ Task 3:
+
+    function ChangeColor() {
+        document.getElementById("paragraph").style.color = "Red"
+    }
+
+    // ✅ Task 4 (Challenge):
+    function SeeConsole() {
+        name = document.getElementById("userName").value
+        password = document.getElementById("userPassword").value
+
+        console.log("Your userId is : " + name, "&  Your Password is :" + password)
+    }
+
+
+    // ✅ Task 5 (Creative): 
+
+    function BulbOff(){
+
+        document.getElementById("Bulb").src ="Bulb-Off.jpg"
+
+    }
+
+    function BulbOn(){
+
+        document.getElementById("Bulb").src ="Bulb-On.jpg"
+
+    }
+
+
+
+
+
+</script>
+
+
+</html>
