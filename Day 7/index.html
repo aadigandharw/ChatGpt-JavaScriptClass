@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✅ JavaScript Day 7: Events & Event
+        Listeners</title>
+</head>
+
+<body style="background-color: white;">
+    <!-- 
+    <button id="MyBtn">
+        Click Me
+    </button>
+
+    <input id="nameInput" type="text">
+    <br><br>
+    <input id="TextInput" type="text">
+    <h2 id="output"></h2>
+
+
+    <select id="lang">
+        <option value="js">JavaScript</option>
+        <option value="py">Python</option> -->
+    <!-- </select> -->
+
+
+
+    <!-- 🔸 Task 1: Button Click Background Change 
+👉 When the user clicks a button, toggle background between white and yellow -->
+    <button id="toggleBtn">Click Me To Change</button>
+
+    <!-- Task 2: Hover Effect  -->
+<!-- 👉 On hovering a box, make its background blue. On mouse leave, make it white again  -->
+    
+    <div id="Box" style="height: 200px;width: 200px;margin-left: 500px;text-align: center;margin-top: 300px;">Hello
+    </div>
+
+
+    <!-- Task 3: Key Logger  -->
+<!-- 👉 As user types in an input box,  
+    update a paragraph with the live text -->
+
+    <input type="text" id="TextInput"/>
+    <h2 id="output"></h2>
+
+
+
+    <!-- 🔸 Task 4: Dropdown Change 
+👉 When a user selects an option from a dropdown,
+    print that value in the console -->
+
+    <select id="Selected">
+        <option value="1">id:1</option>
+        <option value="2">id:2</option>
+        <option value="3">id:3</option>
+    </select>
+
+
+
+</body>
+
+<script>
+
+    // // addEventListener() – Adding an Event Listener
+    // document.getElementById("MyBtn").addEventListener("click",
+    //     function () {
+    //         alert("Button Click")
+    //     }
+    // )
+
+
+    // Hover
+    //     const box = document.getElementById("box"); 
+
+    //   box.addEventListener("mouseover", function() { 
+    //     box.style.backgroundColor = "lightblue"; 
+    //   }); 
+
+    //   box.addEventListener("mouseout", function() { 
+    //     box.style.backgroundColor = "white"; 
+    //   });
+
+    // // Keyboard Events
+
+    // document.getElementById("nameInput").addEventListener("keyup",
+    //     function (e) {
+    //         console.log("Key Down :", e.key)
+    //     }
+    // )
+
+    // // Input & Form Events
+    // // ✅ input Event (Live typing detection):
+    // document.getElementById("TextInput").addEventListener("input",
+    //     function (e) {
+    //         document.getElementById("output").innerHTML = e.target.value
+    //     }
+    // )
+
+    // document.getElementById("lang").addEventListener("change",
+    //     function (e) {
+    //         console.log("Selected:", e.target.value);
+    //     });
+
+
+
+    // event Object & event.target
+    //     element.addEventListener("click", function (event) {
+    //         console.log(event.target); // The clicked element 
+    //     })
+
+
+    //     // Removing Event Listeners
+    //   function greet() { 
+    //   alert("Hello!"); 
+    //   button.removeEventListener("click", greet); // remove after first 
+    // click 
+    // } 
+    //  
+    // const button = document.getElementById("btn"); 
+    // button.addEventListener("click", greet); 
+
+
+
+    // Task-1
+    // ✅ Using a flag variable (simplest & most reliable)
+    document.getElementById("toggleBtn").addEventListener("click", function () {
+        alert("Button Clicked"); // If this appears, event is working
+
+        if (document.body.style.backgroundColor === "yellow") {
+            document.body.style.backgroundColor = "white";
+        } else {
+            document.body.style.backgroundColor = "yellow";
+        }
+    });
+
+    //  Task 2: Hover Effect 
+// 👉 On hovering a box, make its background blue. On mouse leave,
+// make it white again
+
+const box = document.getElementById("Box");
+    box.addEventListener("mouseover", function() { 
+        box.style.backgroundColor = "lightblue"; 
+      }); 
+     
+
+    box.addEventListener("mouseup", function() { 
+        box.style.backgroundColor = "white"; 
+      }); 
+
+
+    //   task-3
+
+    document.getElementById("TextInput").addEventListener("input",
+        function(e){
+            document.getElementById("output").innerHTML = e.target.value
+
+        }
+    )
+
+    // Task-4
+
+    document.getElementById("Selected").addEventListener("change" ,
+        function(e){
+            console.log("Selected:", e.target.value); // The clicked element 
+        }
+    )
+
+
+</script>
+
+</html>
