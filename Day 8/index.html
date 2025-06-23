@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8: Event Bubbling &Event Delegation</title>
+</head>
+
+<body>
+    <!-- ✅ JavaScript – Day 8: Event Bubbling &  -->
+    <!-- Event Delegation (With Examples) -->
+
+    <!-- 📘 Concept 1: Event Bubbling  -->
+
+    <selection id="outer">
+        <div id="middle">
+            <button id="inner">
+                Click Me
+            </button>
+
+        </div>
+    </selection>
+
+    <!-- 📘 Concept 2: Event Delegation -->
+
+    <ul id="todoList">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+    </ul>
+
+
+    <!-- 📘 Concept 3: event.target vs event.currentTarget -->
+    
+    <div id="parent">
+        <button id="child">Click Me </button>
+
+    </div>
+
+
+
+
+
+    <!-- 🔸 Task 1: Bubbling Test  -->
+
+    <Section id="Section">
+        <div id="Div">
+            <button id="Button">
+                Click Me!!!
+            </button>
+        </div>
+    </Section>
+
+    <!-- 🔸 Task 2: Basic Delegation -->
+
+    <ul id="list">
+        <li>One</li>
+        <li>Two</li>
+    </ul>
+</body>
+
+<script>
+
+    // 📘 Concept 1: Event Bubbling 
+
+    document.getElementById("inner").addEventListener("click", () => {
+        console.log("Button Clicked")
+    })
+
+    document.getElementById("middle").addEventListener("click", () => {
+        console.log("Div Clicked")
+    })
+
+    document.getElementById("outer").addEventListener("click", () => {
+        console.log("Selection Clicked")
+    })
+
+        // <!-- 📘 Concept 2: Event Delegation -->
+
+    document.getElementById("todoList").addEventListener("click", function(e){
+        if(e.target.tagName === "LI" ){
+            console.log("You Clicked ", e.target.innerText)
+        }
+    })
+
+    // 📘 Concept 3: event.target vs event.currentTarget
+
+    document.getElementById("parent").addEventListener("click",function(e){
+        console.log("event.target:", e.target.id);          //Child
+        console.log("event.currentTarget:" , e.currentTarget.id)   //Parent
+    })
+
+
+    // 📘 Bonus: stopPropagation()
+    document.getElementById("inner").addEventListener ("click", (e)=>{
+
+        e.stopPropagation(); //Stops Bubbling
+        console.log("Only Button Clicked")
+
+    })
+
+
+
+    // 🔸 Task 1: Bubbling Test 
+
+    document.getElementById("Button").addEventListener("click", ()=>{
+        console.log("Button Clicked")
+
+    })
+    document.getElementById("Div").addEventListener("click", ()=>{
+        console.log("Div Clicked")
+
+    })
+
+    document.getElementById('Section').addEventListener("click",()=>{
+        console.log("Selection clicked")
+    })
+
+    // 🔸 Task 2: Basic Delegation
+
+    document.getElementById('list').addEventListener("click" , (e)=>{
+        console.log("TargetClick" , e.target.innerText)
+    })
+
+
+
+
+
+</script>
+
+</html>
